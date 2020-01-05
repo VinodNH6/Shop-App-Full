@@ -1,5 +1,8 @@
 package demo.controllers;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +22,13 @@ public class ProductServiceController {
    @Autowired
    ProductService productService;
 
-   @RequestMapping(value = "/products")
+   @RequestMapping(value = "/products2")
    //@CrossOrigin(origins = "http://localhost:8080")   //Local CORS support
    public ResponseEntity<Object> getProduct() {
       return new ResponseEntity<>(productService.getProducts(), HttpStatus.OK);
    }
    
-   @RequestMapping(value = "/products/{id}", method = RequestMethod.PUT)
+   @RequestMapping(value = "/products2/{id}", method = RequestMethod.PUT)
    public ResponseEntity<Object> 
       updateProduct(@PathVariable("id") String id, @RequestBody Product product) {
       
@@ -33,13 +36,13 @@ public class ProductServiceController {
       return new ResponseEntity<>("Product is updated successsfully", HttpStatus.OK);
    }
    
-   @RequestMapping(value = "/products/{id}", method = RequestMethod.DELETE)
+   @RequestMapping(value = "/products2/{id}", method = RequestMethod.DELETE)
    public ResponseEntity<Object> delete(@PathVariable("id") String id) {
       productService.deleteProduct(id);
       return new ResponseEntity<>("Product is deleted successsfully", HttpStatus.OK);
    }
    
-   @RequestMapping(value = "/products", method = RequestMethod.POST)
+   @RequestMapping(value = "/products2", method = RequestMethod.POST)
    public ResponseEntity<Object> createProduct(@RequestBody Product product) {
       productService.createProduct(product);
       return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);

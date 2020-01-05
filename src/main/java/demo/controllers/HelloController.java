@@ -12,15 +12,8 @@ import demo.shoppingApp.RestUI;
 
 @RestController
 public class HelloController {
-
 	Logger logger = LoggerFactory.getLogger(HelloController.class);
-	
 	RestUI restUI = new RestUI();
-	
-	public HelloController() {
-
-	}
-	
 	
     @RequestMapping(value = "/index")
     public String index() {

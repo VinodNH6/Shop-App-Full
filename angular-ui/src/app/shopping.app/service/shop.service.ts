@@ -6,7 +6,7 @@ import {map, catchError} from 'rxjs/operators';
 
 @Injectable()
 export class ShopService {
-  apiRootUrl: string = window.location.origin;
+  apiRootUrl: string = window.location.origin + "/";
   results: any[];
 
   constructor(private http: HttpClient) {
